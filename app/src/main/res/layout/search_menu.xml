@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/ic_location_grey_24dp"
+    android:hint="@string/location"
+    android:id="@+id/et_location"
+    android:inputType="text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_date_grey_24dp"
+        android:layout_weight="1"
+        android:hint="Date"
+        android:id="@+id/et_date"
+        android:inputType="date"/>
+    <EditText
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_time_grey_24dp"
+        android:hint="Time"
+        android:id="@+id/et_time"
+        android:inputType="time"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Reserve For:  "
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_current_seek"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1"
+            android:text="0 minutes"
+            android:textSize="19sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_max_seek"
+            android:text=" 0 minutes"
+            android:gravity="end"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+        android:progressTint="@color/colorAccent"
+        android:thumbTint="@color/colorAccent"
+        android:layout_height="wrap_content"
+        android:minHeight="3dp"
+        android:maxHeight="3dp"
+        android:max="120"
+        android:id="@+id/seek_reserve_minutes"
+        android:layout_marginBottom="20dp"/>
+    <Button
+
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_search"
+        android:text="@string/search"
+        android:textSize="16sp"
+        android:background="@drawable/button_rounded"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Assignment4</string>
+    <string name="title_search">Search</string>
+    <string name="title_find">Find</string>
+    <string name="title_reservation">Reservation</string>
+    <string name="title_my_car">My Car</string>
+    <string name="title_activity_maps_search">Map</string>
+    <string name="location">Location</string>
+    <string name="search">Search</string>
+</resources>

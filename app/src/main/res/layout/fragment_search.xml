@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/holo_red_light">
+
+    <com.google.android.gms.maps.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map_search"
+
+        />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/open_search_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#F8F6F6"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/ic_searcher_btn_24dp"
+        android:layout_margin="5dp"/>
+
+</FrameLayout>

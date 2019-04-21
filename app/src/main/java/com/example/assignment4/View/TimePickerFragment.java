@@ -1,4 +1,4 @@
-package com.example.assignment4;
+package com.example.assignment4.View;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

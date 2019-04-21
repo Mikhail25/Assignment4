@@ -1,4 +1,4 @@
-package com.example.assignment4;
+package com.example.assignment4.View;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.example.assignment4.R;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;

@@ -1,4 +1,4 @@
-package com.example.assignment4;
+package com.example.assignment4.View;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.example.assignment4.R;
 
 import java.util.Calendar;
 

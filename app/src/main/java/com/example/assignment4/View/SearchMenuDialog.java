@@ -2,6 +2,7 @@ package com.example.assignment4.View;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -23,17 +25,19 @@ import com.example.assignment4.R;
 import java.util.Calendar;
 
 public class SearchMenuDialog extends BottomSheetDialogFragment {
-    EditText getDateText, getTimeText;
+    EditText getDateText, getTimeText, getLocation;
     TextView getCurrentSeek, getMaxSeek;
     SeekBar seekBar;
+    Button btnSearch;
     Calendar cal;
     int currentHour, currentMinute;
     String amPm;
 
+
     DatePickerDialog.OnDateSetListener dateSetListener;
     TimePickerDialog timePickerDialog;
     public static final String TAG = "SearchMenuDialog";
-
+    private BottomSheetListener mListener;
 
 
 
@@ -43,7 +47,21 @@ public class SearchMenuDialog extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.search_menu,container,false);
         getDateText = view.findViewById(R.id.et_date);
         getTimeText= view.findViewById(R.id.et_time);
+        getLocation = view.findViewById(R.id.et_location);
+        btnSearch = view.findViewById(R.id.btn_search);
         valueSeekbar(view);
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onSearchClicked(
+                        getLocation.getText().toString(),
+                        getDateText.getText().toString(),
+                        getTimeText.getText().toString(),
+                        seekBar.getProgress());
+                dismiss();
+            }
+        });
 
         getDateText.setShowSoftInputOnFocus(false);
         getTimeText.setShowSoftInputOnFocus(false);
@@ -93,7 +111,7 @@ public class SearchMenuDialog extends BottomSheetDialogFragment {
                             } else {
                                 amPm = "AM";
                             }
-                            getTimeText.setText(String.format("%02d:%02d", hourOfDay, minute) + amPm);
+                            getTimeText.setText(String.format("%02d:%02d", hourOfDay, minute));
                         }
                     }, currentHour, currentMinute, false);
                     timePickerDialog.show();
@@ -104,6 +122,21 @@ public class SearchMenuDialog extends BottomSheetDialogFragment {
         });
 
         return view;
+    }
+
+    public interface BottomSheetListener{
+        void onSearchClicked(String location, String date, String time,Integer reservation);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (BottomSheetListener) context;
+        }catch (ClassCastException e){
+            throw new ClassCastException(context.toString()
+            +" must implement BottomsheetListener");
+        }
     }
 
     public void valueSeekbar(View view){
@@ -135,5 +168,7 @@ public class SearchMenuDialog extends BottomSheetDialogFragment {
             }
         });
     }
+
+
 
 }
